@@ -24,6 +24,7 @@ const fs = require('fs');
 const util = require('util');
 const https = require('https');
 const cp = require('child_process');
+const path = require('path');
 const [ mkdir, access, rename, execFile, exec ] = // eslint-disable-line
   [ fs.mkdir, fs.access, fs.rename, cp.execFile, cp.exec ].map(util.promisify);
 
@@ -91,7 +92,9 @@ async function win32() {
 
 async function linux() {
   console.log('Checking FFmpeg dependencies for Beam Coder on Linux.');
-  const { stdout } = await execFile('ldconfig', ['-p']).catch(console.error);
+  const { stdout } = await exec('ls $LD_LIBRARY_PATH', ['-l']).catch(console.error);
+  // const { stdout } = await execFile('ldconfig', ['-p']).catch(console.error);
+  
   let result = 0;
 
   if (stdout.indexOf('libavcodec.so.58') < 0) {

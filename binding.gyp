@@ -21,7 +21,11 @@
           "-std=c++11",
           "-fexceptions"
         ],
+        "include_dirs": [
+        "./include"
+        ],
         "link_settings": {
+          "ldflags": ['-L../libs'],
           "libraries": [
             "-lavcodec",
             "-lavdevice",
@@ -31,7 +35,7 @@
             "-lpostproc",
             "-lswresample",
             "-lswscale"
-          ]
+          ],
         }
       }],
       ['OS=="win"', {
