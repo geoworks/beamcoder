@@ -25,16 +25,25 @@
         "./include"
         ],
         "link_settings": {
-          "ldflags": ['-L../libs'],
+          # "ldflags": ['-L../libs'],
           "libraries": [
-            "-lavcodec",
-            "-lavdevice",
-            "-lavfilter",
-            "-lavformat",
-            "-lavutil",
-            "-lpostproc",
-            "-lswresample",
-            "-lswscale"
+            "-Wl,-rpath,./libs.libavcodec.so"
+            "-Wl,-rpath,./libs.libavdevice.so"
+            "-Wl,-rpath,./libs.liblavdevice.so"
+            "-Wl,-rpath,./libs.libavfilter.so"
+            "-Wl,-rpath,./libs.libavformat.so"
+            "-Wl,-rpath,./libs.libavutil.so"
+            "-Wl,-rpath,./libs.libpostproc.so"
+            "-Wl,-rpath,./libs.libswresample.so"
+            "-Wl,-rpath,./libs.libswscale.so"
+            # "-lavcodec",
+            # "-lavdevice",
+            # "-lavfilter",
+            # "-lavformat",
+            # "-lavutil",
+            # "-lpostproc",
+            # "-lswresample",
+            # "-lswscale"
           ],
         }
       }],
