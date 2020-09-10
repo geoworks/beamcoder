@@ -5,8 +5,8 @@
   "main": "index.js",
   "types": "index.d.ts",
   "scripts": {
-    "preinstall": "export LD_LIBRARY_PATH=./libs && node install_ffmpeg.js",
-    "install": "export echo ${pwd} export LD_LIBRARY_PATH=./libs && node-gyp rebuild",
+    "preinstall": "pwd && export LD_LIBRARY_PATH=./libs && node install_ffmpeg.js",
+    "install": "export LD_LIBRARY_PATH=./libs && node-gyp rebuild",
     "test": "tape test/*.js",
     "lint": "eslint **/*.js",
     "lint-html": "eslint **/*.js -f html -o ./reports/lint-results.html",
