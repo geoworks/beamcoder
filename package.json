@@ -6,7 +6,7 @@
   "types": "index.d.ts",
   "scripts": {
     "preinstall": "pwd && export LD_LIBRARY_PATH=./libs && node install_ffmpeg.js",
-    "install": "myvar=`pwd` && ls ${myvar}/libs && export LD_LIBRARY_PATH=./libs && node-gyp rebuild",
+    "install": "myvar=`pwd` && ls ${myvar}/libs && export LD_LIBRARY_PATH=../libs && node-gyp rebuild",
     "test": "tape test/*.js",
     "lint": "eslint **/*.js",
     "lint-html": "eslint **/*.js -f html -o ./reports/lint-results.html",
